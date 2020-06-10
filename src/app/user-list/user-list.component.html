@@ -1,0 +1,6 @@
+<div class=" card card-body border border-success style ">
+    <label >UserListComponent</label>
+    <app-user-list-item [change]="color" *ngFor="let userStorage of addUsersToList" [user]="userStorage">
+    </app-user-list-item>
+    <button (click)="userListColorChanger()" class=" btn btn-primary">Toggle Color</button>
+</div>

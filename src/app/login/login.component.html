@@ -1,0 +1,21 @@
+<form *ngIf="!show"(ngSubmit)="submitButton(userForm)" method="post" #userForm="ngForm" >
+
+    <div class="container">
+        <label for="uname"><b>Email</b></label>
+        <input #email="ngModel" [(ngModel)]="emailInput" type="text" [class.is-invalid]="email.invalid  && email.untouched" class="form-control" placeholder="Enter Email" name="email" id="email"  required>
+        <small  class="text-danger" [class.d-none]="email.valid || email.untouched">email is required</small>
+        <br>
+        <label for="psw"><b>Password</b></label>
+        <input #password="ngModel" [class.is-invalid]="password.invalid && password.touched" class="form-control" [(ngModel)]="userInput" type="password" placeholder="Enter Password" name="password" id="password"  required>
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched">password is required</small>
+        <button type="submit" type="submit"[disabled]="userForm.form.invalid"> Login</button>
+    </div>
+</form>
+
+
+
+<div *ngIf="show">
+    <button (click)="logOut()">Logout</button>
+</div>
+
+

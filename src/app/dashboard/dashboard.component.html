@@ -1,0 +1,9 @@
+<div *ngIf="show" class="border border-danger container-fluid">
+    <label>dashboardComponent</label>
+    <app-user-list [addUsersToList]="userList" class="d-inline-flex p-5"></app-user-list>
+    <app-edit-user (removeOutPut)="removeUserFunc($event)" (addOutPut)="addOutPutFunc($event)" class="d-inline-flex p-4">
+    </app-edit-user>
+    
+  </div>
+
+  <p *ngIf="!show">You have to login to get inside Dashboard</p>
