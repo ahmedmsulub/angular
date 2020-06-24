@@ -14,7 +14,7 @@ import { DataService } from '../api.service';
  * depending on the id the user is clicked has.
  */
 export class SingleUserComponent implements OnInit {
-  apiUrl
+  apiUrl;
 
   user;
   id: string;
