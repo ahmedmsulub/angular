@@ -27,7 +27,7 @@ export class DataService {
     return this.userList;
   }
 
-  getUserss(url) {
+  getUsersapi(url) {
     let base_url = 'https://jsonplaceholder.typicode.com/';
     return fetch(base_url + url);
   }

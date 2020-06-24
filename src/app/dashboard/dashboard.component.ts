@@ -12,7 +12,9 @@ export class DashboardComponent implements OnInit {
   addUser;
   public userList:any;
   number:number
-  constructor(private Auth:AuthService, private api:DataService) {}
+  constructor(private Auth:AuthService, private api:DataService) {
+    this.getJSONUsers();
+  }
   show=this.Auth.show
   
   ngOnInit() {
@@ -20,13 +22,6 @@ export class DashboardComponent implements OnInit {
     return this.api.returnUsers();
 
   }
- 
-  // addOutPutFunc(event:{}): void {
-  //   this.addUser = {
-  //     name:event
-  //   }
-  //   this.userList.unshift(this.addUser);
-  // }
   addOutPutFunc(addUser: string) {
     this.userList.unshift({ id: this.number, name: addUser });
     this.number =  this.userList.length +1
@@ -34,6 +29,16 @@ export class DashboardComponent implements OnInit {
 
   removeUserFunc=(): void=> {
     this.userList.shift();
+}
+
+getJSONUsers() {
+  let url = 'users'
+  this.api.getUsersapi(url)
+    .then(response => response.json())
+    .then(json => {
+      this.userList = json;
+      this.number =  this.userList.length +1;
+    })
 }
 
 }

@@ -14,24 +14,28 @@ import { DataService } from '../api.service';
  * depending on the id the user is clicked has.
  */
 export class SingleUserComponent implements OnInit {
-  id;
-  user;
-  apiUrl;
-  constructor(private _http: HttpClient, private route: ActivatedRoute, private api:DataService) {}
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.id = params.id; // since :id was set in the module
-      return this.apiUrl = this.api.apiUrl + '/' + this.id;
-    })
+  user: object;
+  id: string;
+  userId: number;
 
-    this._http.get(this.apiUrl);
-    return this.getUsers()
-      .subscribe(data => this.user = data)
+ 
+  constructor(private _http: HttpClient, private route: ActivatedRoute, private api:DataService) {
+  
   }
-  getUsers() {
-    return this._http.get(this.apiUrl);
+  ngOnInit() {
+
+  }
+  getJSONUsers() {
+    let url = 'users'
+    this.api.getUsersapi(url)
+      .then(response => response.json())
+      .then(json => {
+        this.user = json[this.userId];
+      })
   }
 }
+
+
 
 
 
