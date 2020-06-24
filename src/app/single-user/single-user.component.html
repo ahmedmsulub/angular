@@ -1,16 +1,1 @@
-<ng-container *ngIf="this.user; then thenTemplate; else elseTemplate"></ng-container>
-<ng-template #thenTemplate>
-    <div class="container">
-        <h4> {{ user.username }} </h4>
-        <p class="grey"> {{ user.name }} </p>
-        <p>city: {{ user.address.city }} </p>
-        <p>street: {{ user.address.street }} </p>
-        <p>zipcode: {{ user.address.zipcode }} </p>
-    </div>
-</ng-template>
-
-<ng-template #elseTemplate>
-    <div class="container">
-        <h4> Loading user </h4>
-    </div>
-</ng-template>
+<h1>USER:{{user?.name}}</h1> 
