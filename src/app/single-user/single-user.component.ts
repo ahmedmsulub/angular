@@ -22,19 +22,16 @@ export class SingleUserComponent implements OnInit {
 
  
   constructor(private _http: HttpClient, private route: ActivatedRoute, private api:DataService) {
-  
+    this.getJSONUsers();
+    this.route.params.subscribe(params => {
+      this.id = params.id;
+      this.userId = params.id -1
+    })
+
   }
   
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.id = params.id; // since :id was set in the module
-      return this.apiUrl = this.api.apiUrl + '/' + this.id;
-    })
-
-    this._http.get(this.apiUrl);
-    return this.api.getUsers()
-      .subscribe(data => this.user = data)
-
+    
   }
   
   getJSONUsers() {

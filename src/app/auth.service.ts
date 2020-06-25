@@ -48,5 +48,4 @@ export class AuthService {
     password: '0987654321'
    
     }];
-
 }
